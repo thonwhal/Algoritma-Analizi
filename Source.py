@@ -2,43 +2,44 @@
 #
 # x = []
 # for j in range(0, 10000):
-#     num = random.randint(1, 2000000)
-#     x.append(num)
-# with open('originalList5.txt', 'w') as filehandle:
+#     num = random.randint(1, 2000000) # picking between 1-200000 numbers value into num variable
+#     x.append(num) #adding num value to array
+# with open('originalList5.txt', 'w') as filehandle:  #Writing to original list files, i did it 5 times
 #     for listitem in x:
 #         filehandle.write('%s\n' % listitem)
-import time
-# test=[]
+import time  # required library for calculate time
+
+# test=[] #these are my test list for insertion sort
 # with open('sortedList.txt', 'r') as filehandle:
 #     for line in range(0,3):
 #         currentPlace = int(line[:-1])
 #         test.append(currentPlace)
 # print(y)
 x = []
-with open('originalList5.txt', 'r') as filehandle:
+with open('originalList5.txt', 'r') as filehandle:  # read list file
     for line in filehandle:
         currentPlace = int(line[:-1])
-        x.append(currentPlace)
+        x.append(currentPlace)  # adding items into array
 
 
-def insertionSort(array):
-    for j in range(1, len(array)):
+def insertionSort(array):  # insertion sort function
+    for j in range(1, len(array)):  # 10.000 (array length) times loop
         key = array[j]
         i = j - 1
-        while (i > -1) and key < array[i]:
-            array[i + 1] = array[i]
+        while (i > -1) and key < array[i]:  # checking values lower or not
+            array[i + 1] = array[i]  # transform locations
             i = i - 1
         array[i + 1] = key
     return array
 
 
-def mergeSort(array):
-    if len(array) > 1:
-        mid = len(array) // 2
-        lefthalf = array[:mid]
-        righthalf = array[mid:]
+def mergeSort(array):  # merge sort function
+    if len(array) > 1:  # if it is 1 it cannot split
+        mid = len(array) // 2  # splitting into middle
+        lefthalf = array[:mid]  # lefthalf of list
+        righthalf = array[mid:]  # righthalf of list
 
-        # recursion
+        # recursion splitting all the list
         mergeSort(lefthalf)
         mergeSort(righthalf)
 
@@ -46,34 +47,34 @@ def mergeSort(array):
         j = 0
         k = 0
 
-        while i < len(lefthalf) and j < len(righthalf):
+        while i < len(lefthalf) and j < len(righthalf):  # checking sort lower
             if lefthalf[i] < righthalf[j]:
-                array[k] = lefthalf[i]
+                array[k] = lefthalf[i]  # make it lefthalf
                 i = i + 1
             else:
-                array[k] = righthalf[j]
+                array[k] = righthalf[j]  # make it right half
                 j = j + 1
             k = k + 1
 
         while i < len(lefthalf):
-            array[k] = lefthalf[i]
+            array[k] = lefthalf[i]  # make it left half
             i = i + 1
             k = k + 1
 
         while j < len(righthalf):
-            array[k] = righthalf[j]
+            array[k] = righthalf[j]  # make it right half
             j = j + 1
             k = k + 1
 
 
-start = time.time()
-# insertionSort(x)
-x.sort()
-# mergeSort(x)
-stop = time.time()
+start = time.time()  # timer start
+# insertionSort(x) #sort function start
+x.sort()  # sort function start
+# mergeSort(x) #sort function start
+stop = time.time()  # timer stop
 print(x)
-print(stop - start)
-# with open('sortedList5.txt', 'w') as filehandle:
+print(stop - start)  # calculate time difference between start and stop time
+# with open('sortedList5.txt', 'w') as filehandle: # write sorted list into txt file
 #     for listitem in x:
 #         filehandle.write('%s\n' % listitem)
 
@@ -84,4 +85,4 @@ avgMergeSort = (
                        0.10936880111694336 + 0.06251120567321777 + 0.07811641693115234 + 0.07811737060546875 + 0.06249284744262695 + 0.07810831069946289 + 0.07812070846557617 + 0.07812047004699707 + 0.07811999320983887 + 0.07811808586120605 + 0.07811856269836426 + 0.07121856269436213 + 0.07811808586120605 + 0.066491655349731785 + 0.07811713218688965 + 0.07811784744262695 + 0.07811665534973145 + 0.07811713218688965 + 0.062491655349731445 + 0.07812023162841797 + 0.07811975479125977 + 0.07811808586120605 + 0.07811951637268066 + 0.07813429832458496 + 0.07811808586120605) / 25
 avgTimSort = (
                      0.015623092651367188 + 0.0 + 0.015624523162841797 + 0.0 + 0.0 + 0.015622377395629883 + 0.0 + 0.015624761581420898 + 0.0 + 0.015624046325683594 + 0.0 + 0.0 + 0.01262951215300093 + 0.0 + 0.0 + 0.0 + 0.0 + 0.015619754791259766 + 0.0 + 0.015622854232788086 + 0.015624523162841797 + 0.0 + 0.01562952995300293 + 0.0 + 0.015623807907104492) / 25
-print(avgInsertionSort, avgMergeSort, avgTimSort)
+print(avgInsertionSort, avgMergeSort, avgTimSort)  # average of 25 values
