@@ -1,5 +1,5 @@
-Average of insertion sort :6105.8
-Average of merge sort :71.8
-Average of quick sort 1 :34.8
-1Average of quic sort 2 :43.8
-Average of quick sort 3 :796.6
+Average of insertion sort :1556.2
+Average of merge sort :37.6
+Average of quick sort 1 :3768.2
+Average of quick sort 2 :1312.0
+Average of quick sort 3 :431.6

@@ -1,6 +1,10 @@
 import time
 import random
 
+import sys
+
+sys.setrecursionlimit(1500000000)
+
 
 def insertionSort(array):  # insertion sort function
     for j in range(1, len(array)):  # 10.000 (array length) times loop
@@ -266,13 +270,39 @@ for k in range(1, 6):
         filehandle.write('%s ms..\n' % q3time)
         for listitem in x5:
             filehandle.write('%s\n' % listitem)
+    q1_start = int(round(time.time() * 1000))  # timer start
+    quickSort(x3, 0, n - 1)
+    q1_stop = int(round(time.time() * 1000))  # timer stop
+    sumqtime += (q1_stop - q1_start)
+    q1time = str(q1_stop - q1_start)
+    with open('q1-seed-sorted' + str(k) + '.txt', 'w') as filehandle:  # write sorted list into txt file
+        filehandle.write('%s ms..\n' % q1time)
+        for listitem in x3:
+            filehandle.write('%s\n' % listitem)
+    q2_start = int(round(time.time() * 1000))  # timer start
+    quickSort_2(x4, 0, n - 1)
+    q2_stop = int(round(time.time() * 1000))  # timer stop
+    sumq2time += (q2_stop - q2_start)
+    q2time = str(q2_stop - q2_start)
+    with open('q2-seed-sorted' + str(k) + '.txt', 'w') as filehandle:  # write sorted list into txt file
+        filehandle.write('%s ms..\n' % q2time)
+        for listitem in x4:
+            filehandle.write('%s\n' % listitem)
+    q3_start = int(round(time.time() * 1000))  # timer start
+    quicksort_median(x5, 0, n)
+    q3_stop = int(round(time.time() * 1000))  # timer stop
+    sumq3time += (q3_stop - q3_start)
+    with open('q3-seed-sorted' + str(k) + '.txt', 'w') as filehandle:  # write sorted list into txt file
+        filehandle.write('%s ms..\n' % q3time)
+        for listitem in x5:
+            filehandle.write('%s\n' % listitem)
     print("Sorted array is:\n")
     print(x1)
     print(x2)
     print(x3)
     print(x4)
     print(x5)
-    x = [] # these are for remove values from array because quick sort cant work without it
+    x = []  # these are for remove values from array because quick sort cant work without it
     x1 = []
     x2 = []
     x3 = []
