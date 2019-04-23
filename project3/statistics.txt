@@ -1,0 +1,12 @@
+Average of insertion sort :1700.0
+Average of merge sort :37.6
+Average of quick sort 1 :4215.6
+1Average of quick sort 2 :1668.8
+Average of quick sort 3 :1244.2
+Average of heap sort  :52.6
+Average of insertion sort reversed:3521.6
+Average of merge sort reversed:31.4
+Average of quick sort 1 reversed:2534.2
+1Average of quick sort 2 reversed:1418.4
+Average of quick sort 3 reversed:0.0
+Average of heap sort  reversed:52.6
