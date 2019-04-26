@@ -247,6 +247,13 @@ sumqtimeR = 0
 sumq2timeR = 0
 sumq3timeR = 0
 sumhtimeR = 0
+suminstimeS = 0
+summertimeS = 0
+sumqtimeS = 0
+sumq2timeS = 0
+sumq3timeS = 0
+sumhtimeS = 0
+
 x = []
 x1 = []  # insertion sort
 x2 = []  # merge sort
@@ -359,6 +366,36 @@ for k in range(1, 6):
     print(x4)
     print(x5)
     print(x6)
+    i_startS = int(round(time.time() * 1000))  # timer start
+    insertionSort(x1)  # sort function start
+    i_stopS = int(round(time.time() * 1000))  # timer stop
+    suminstimeS += (i_stopS - i_startS)
+    itimeS = str(i_stopS - i_startS)
+    m_startS = int(round(time.time() * 1000))  # timer start
+    mergeSort(x2)  # sort function start
+    m_stopS = int(round(time.time() * 1000))  # timer stop
+    summertimeS += (m_stopS - m_startS)
+    mtimeS = str(m_stopS - m_startS)
+    q1_startS = int(round(time.time() * 1000))  # timer start
+    quickSort(x3, 0, n - 1)
+    q1_stopS = int(round(time.time() * 1000))  # timer stop
+    sumqtimeS += (q1_stopS - q1_startS)
+    q1timeS = str(q1_stopS - q1_startS)
+    q2_startS = int(round(time.time() * 1000))  # timer start
+    quickSort_2(x4, 0, n - 1)
+    q2_stopS = int(round(time.time() * 1000))  # timer stop
+    sumq2timeS += (q2_stopS - q2_startS)
+    q2timeS = str(q2_stopS - q2_startS)
+    q3_startS = int(round(time.time() * 1000))  # timer start
+    quicksort_median(x5, 0, n)
+    q3_stopS = int(round(time.time() * 1000))  # timer stop
+    sumq3timeS += (q3_stopS - q3_startS)
+    q3timeS = str(q3_stopS - q3_startS)
+    h_startS = int(round(time.time() * 1000))  # timer start
+    heapsort(x6)
+    h_stopS = int(round(time.time() * 1000))  # timer stop
+    sumhtimeS += (h_stopS - h_startS)
+    htimeS = str(h_stopS - h_startS)
     x1.reverse()  # reversed lists
     x2.reverse()
     x2.reverse()
@@ -405,16 +442,22 @@ for k in range(1, 6):
     x6 = []
 a1 = "Average of insertion sort :" + str(suminstime / 5) + "\n"
 a2 = "Average of merge sort :" + str(summertime / 5) + "\n"
-a3 = "Average of quick sort 1 :" + str(sumqtime / 5) + "\n1"
+a3 = "Average of quick sort 1 :" + str(sumqtime / 5) + "\n"
 a4 = "Average of quick sort 2 :" + str(sumq2time / 5) + "\n"
 a5 = "Average of quick sort 3 :" + str(sumq3time / 5) + "\n"
 a6 = "Average of heap sort  :" + str(sumhtime / 5) + "\n"
 a1r = "Average of insertion sort reversed:" + str(suminstimeR / 5) + "\n"
 a2r = "Average of merge sort reversed:" + str(summertimeR / 5) + "\n"
-a3r = "Average of quick sort 1 reversed:" + str(sumqtimeR / 5) + "\n1"
+a3r = "Average of quick sort 1 reversed:" + str(sumqtimeR / 5) + "\n"
 a4r = "Average of quick sort 2 reversed:" + str(sumq2timeR / 5) + "\n"
 a5r = "Average of quick sort 3 reversed:" + str(sumq3timeR / 5) + "\n"
 a6r = "Average of heap sort  reversed:" + str(sumhtimeR / 5) + "\n"
+a1S = "Average of insertion sort sorted:" + str(suminstimeS / 5) + "\n"
+a2S = "Average of merge sort sorted:" + str(summertimeS / 5) + "\n"
+a3S = "Average of quick sort 1 sorted:" + str(sumqtimeS / 5) + "\n"
+a4S = "Average of quick sort 2 sorted:" + str(sumq2timeS / 5) + "\n"
+a5S = "Average of quick sort 3 sorted:" + str(sumq3timeS / 5) + "\n"
+a6S = "Average of heap sort  sorted:" + str(sumhtimeS / 5) + "\n"
 with open('statistics.txt', 'w') as filehandle:  # write statistics list into txt file
     filehandle.write(a1)
     filehandle.write(a2)
@@ -428,3 +471,9 @@ with open('statistics.txt', 'w') as filehandle:  # write statistics list into tx
     filehandle.write(a4r)
     filehandle.write(a5r)
     filehandle.write(a6r)
+    filehandle.write(a1S)
+    filehandle.write(a2S)
+    filehandle.write(a3S)
+    filehandle.write(a4S)
+    filehandle.write(a5S)
+    filehandle.write(a6S)
