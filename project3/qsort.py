@@ -241,6 +241,12 @@ sumqtime = 0
 sumq2time = 0
 sumq3time = 0
 sumhtime = 0
+suminstimeRan = 0
+summertimeRan = 0
+sumqtimeRan = 0
+sumq2timeRan = 0
+sumq3timeRan = 0
+sumhtimeRan = 0
 suminstimeR = 0
 summertimeR = 0
 sumqtimeR = 0
@@ -396,6 +402,7 @@ for k in range(1, 6):
     h_stopS = int(round(time.time() * 1000))  # timer stop
     sumhtimeS += (h_stopS - h_startS)
     htimeS = str(h_stopS - h_startS)
+
     x1.reverse()  # reversed lists
     x2.reverse()
     x2.reverse()
@@ -433,6 +440,47 @@ for k in range(1, 6):
     h_stopR = int(round(time.time() * 1000))  # timer stop
     sumhtimeR += (h_stop - h_start)
     htimeR = str(h_stop - h_start)
+    x1.pop()  # popping last element
+    x2.pop()
+    x3.pop()
+    x4.pop()
+    x5.pop()
+    numR = random.randint(1, 2000000)  # making a random last element for a sorted list
+    x1.append(numR)
+    x2.append(numR)
+    x3.append(numR)
+    x4.append(numR)
+    x5.append(numR)
+    i_startRan = int(round(time.time() * 1000))  # timer start
+    insertionSort(x1)  # sort function start
+    i_stopRan = int(round(time.time() * 1000))  # timer stop
+    suminstimeRan += (i_stopRan - i_startRan)
+    itimeRan = str(i_stopRan - i_startRan)
+    m_startRan = int(round(time.time() * 1000))  # timer start
+    mergeSort(x2)  # sort function start
+    m_stopRan = int(round(time.time() * 1000))  # timer stop
+    summertimeRan += (m_stopRan - m_startRan)
+    mtimeRan = str(m_stopRan - m_startRan)
+    q1_startRan = int(round(time.time() * 1000))  # timer start
+    quickSort(x3, 0, n - 1)
+    q1_stopRan = int(round(time.time() * 1000))  # timer stop
+    sumqtimeRan += (q1_stopRan - q1_startRan)
+    q1timeRan = str(q1_stopRan - q1_startRan)
+    q2_startRan = int(round(time.time() * 1000))  # timer start
+    quickSort_2(x4, 0, n - 1)
+    q2_stopRan = int(round(time.time() * 1000))  # timer stop
+    sumq2timeRan += (q2_stopRan - q2_startRan)
+    q2timeRan = str(q2_stopRan - q2_startRan)
+    q3_startRan = int(round(time.time() * 1000))  # timer start
+    quicksort_median(x5, 0, n)
+    q3_stopRan = int(round(time.time() * 1000))  # timer stop
+    sumq3timeRan += (q3_stopRan - q3_startRan)
+    q3timeRan = str(q3_stopRan - q3_startRan)
+    h_startRan = int(round(time.time() * 1000))  # timer start
+    heapsort(x6)
+    h_stopRan = int(round(time.time() * 1000))  # timer stop
+    sumhtimeRan += (h_stopRan - h_startRan)
+    htimeRan = str(h_stopRan - h_startRan)
     x = []  # these are for remove values from array because quick sort cant work without it
     x1 = []
     x2 = []
@@ -458,22 +506,38 @@ a3S = "Average of quick sort 1 sorted:" + str(sumqtimeS / 5) + "\n"
 a4S = "Average of quick sort 2 sorted:" + str(sumq2timeS / 5) + "\n"
 a5S = "Average of quick sort 3 sorted:" + str(sumq3timeS / 5) + "\n"
 a6S = "Average of heap sort  sorted:" + str(sumhtimeS / 5) + "\n"
+a1Ran = "Average of insertion sort sorted:" + str(suminstimeRan / 5) + "\n"
+a2Ran = "Average of merge sort sorted:" + str(summertimeRan / 5) + "\n"
+a3Ran = "Average of quick sort 1 sorted:" + str(sumqtimeRan / 5) + "\n"
+a4Ran = "Average of quick sort 2 sorted:" + str(sumq2timeRan / 5) + "\n"
+a5Ran = "Average of quick sort 3 sorted:" + str(sumq3timeRan / 5) + "\n"
+a6Ran = "Average of heap sort  sorted:" + str(sumhtimeRan / 5) + "\n"
 with open('statistics.txt', 'w') as filehandle:  # write statistics list into txt file
+    filehandle.write("Regular Sorting\n------\n")
     filehandle.write(a1)
     filehandle.write(a2)
     filehandle.write(a3)
     filehandle.write(a4)
     filehandle.write(a5)
     filehandle.write(a6)
+    filehandle.write("------\nReversed Sorting\n------\n")
     filehandle.write(a1r)
     filehandle.write(a2r)
     filehandle.write(a3r)
     filehandle.write(a4r)
     filehandle.write(a5r)
     filehandle.write(a6r)
+    filehandle.write("------\nSorting sorted lists\n------\n")
     filehandle.write(a1S)
     filehandle.write(a2S)
     filehandle.write(a3S)
     filehandle.write(a4S)
     filehandle.write(a5S)
     filehandle.write(a6S)
+    filehandle.write("------\nMaking last element random sorted lists\n------\n")
+    filehandle.write(a1Ran)
+    filehandle.write(a2Ran)
+    filehandle.write(a3Ran)
+    filehandle.write(a4Ran)
+    filehandle.write(a5Ran)
+    filehandle.write(a6Ran)
