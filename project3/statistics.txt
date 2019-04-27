@@ -1,12 +1,35 @@
-Average of insertion sort :1700.0
-Average of merge sort :37.6
-Average of quick sort 1 :4215.6
-1Average of quick sort 2 :1668.8
-Average of quick sort 3 :1244.2
-Average of heap sort  :52.6
-Average of insertion sort reversed:3521.6
-Average of merge sort reversed:31.4
-Average of quick sort 1 reversed:2534.2
-1Average of quick sort 2 reversed:1418.4
+Regular Sorting
+------
+Average of insertion sort :1837.4
+Average of merge sort :40.6
+Average of quick sort 1 :4059.0
+Average of quick sort 2 :1447.0
+Average of quick sort 3 :1200.2
+Average of heap sort  :43.8
+------
+Reversed Sorting
+------
+Average of insertion sort reversed:3443.6
+Average of merge sort reversed:37.6
+Average of quick sort 1 reversed:2553.0
+Average of quick sort 2 reversed:1390.4
 Average of quick sort 3 reversed:0.0
-Average of heap sort  reversed:52.6
+Average of heap sort  reversed:43.8
+------
+Sorting sorted lists
+------
+Average of insertion sort sorted:0.0
+Average of merge sort sorted:31.2
+Average of quick sort 1 sorted:4028.0
+Average of quick sort 2 sorted:1396.6
+Average of quick sort 3 sorted:234.4
+Average of heap sort  sorted:43.6
+------
+Making last element random sorted lists
+------
+Average of insertion sort sorted:0.0
+Average of merge sort sorted:28.0
+Average of quick sort 1 sorted:1537.2
+Average of quick sort 2 sorted:978.2
+Average of quick sort 3 sorted:400.0
+Average of heap sort  sorted:40.8
